@@ -1,0 +1,23 @@
+﻿    ul.slider
+    {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        width: 10000px; /* Mit Margin left "scrollen" wir den Slider */ /* margin-left: -1200px; */
+    }
+    
+    .slItem, .mainSlider
+    {
+        width: 600px;
+    }
+    
+    ul.slider > li
+    {
+        /* Hier müsste man am besten über no-js das float austellen, dann werden alle Untereinander angezeigt. */
+        float: left;
+    }
+    
+    .mainSlider
+    {
+        overflow: hidden;
+    }

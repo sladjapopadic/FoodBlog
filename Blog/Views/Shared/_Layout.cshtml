@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body style="background-color:#e6ee9c; font-family:Papyrus;">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#263238">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <a href="@Url.Action("Index", "Home")", class="navbar-left"><img height="40" width="40" src="~/Images/logo.png" /></a>
+                    <li>@Html.ActionLink("Naslovna", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Recepti", "Index", "Recept")</li>
+                    <li>@Html.ActionLink("Dodaj recept", "Create", "Recept")</li>
+                    <li>@Html.ActionLink("O meni", "About", "Home")</li>
+                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @{ if (Session["Id"] == null)
+                        {
+                            <li>@Html.ActionLink("Uloguj se", "LoginForm", "Login")</li>
+                            <li>@Html.ActionLink("Registracija", "Add", "User")</li>
+                        }
+                        else
+                        {
+                            if ((bool)Session["IsAdmin"] == true)
+                            {
+                                <li>@Html.ActionLink("Korisnici", "Index", "User")</li>
+                            }
+                            else
+                            {
+                                <li><a href="~/Recept/MojiRecepti">Moji recepti</a></li>
+                            }
+                            <li><a href="@Url.Action("LogOut", "Login")">Izloguj se</a></li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <div style="margin-left:5%">
+        <hr />
+        <footer>
+            <a href="http://facebook.com/sladjapopadic">
+                <img src="~/Images/fejs.png" />
+            </a>
+            <a href="http://instagram.com">
+                <img src="~/Images/instagram.png" />
+            </a>
+            <a href="http://twitter.com">
+                <img src="~/Images/twitter.png" style="width:20px; height:20px" />
+            </a>
+            <a href="http://pinterest.com">
+                <img src="~/Images/pinterest.png" style="width:20px; height:20px" />
+            </a>
+            <p style="color:black">&reg; @DateTime.Now.Year Slađanin blog o hrani</p>
+        </footer>
+    </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

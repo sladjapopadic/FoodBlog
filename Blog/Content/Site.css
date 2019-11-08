@@ -1,0 +1,103 @@
+﻿body {
+    padding:0px;
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+.body-content{
+    margin-top:50px;
+    width:100%;
+}
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar-nav {
+    display: inline-block;
+}
+
+.navbar-nav > li {
+    display: inline-block;
+}
+
+.carousel slide
+{
+    padding:0px;
+}
+
+#carousel-div{
+    padding:0px;
+}
+
+.body-content {
+    padding: 0px;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    display: block;
+    height: 400px;
+    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+    line-height: 1;
+}
+
+.navbar-header {
+    background-color: transparent;
+    border: none;
+}
+
+.featurette {
+    margin-top: 5%; 
+}
+
+.glyphicon.glyphicon-menu-up {
+    font-size: 16px;
+}
+
+.first-box {
+    padding: 10px;
+    background: #9C0;
+}
+
+.second-box {
+    padding: 10px;
+    background: #39F;
+}
+
+.third-box {
+    padding: 10px;
+    background: #F66;
+}
+
+.fourth-box {
+    padding: 10px;
+    background: #6CC;
+}
+
+.wrapper {
+    text-align: center;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+}
+
+.recept {
+    border: 1px solid black;
+}

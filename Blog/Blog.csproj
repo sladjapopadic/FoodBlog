@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{410E0149-1973-4293-9280-471C3CC83CE8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Blog</RootNamespace>
+    <AssemblyName>Blog</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.5.1\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.5.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.5.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.5.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.5.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.5.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ReceptController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Data\BlogContext.cs" />
+    <Compile Include="Data\Models\Recept.cs" />
+    <Compile Include="Data\Models\ReceptFilter.cs" />
+    <Compile Include="Data\Models\User.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809291927378_AddedModel.cs" />
+    <Compile Include="Migrations\201809291927378_AddedModel.Designer.cs">
+      <DependentUpon>201809291927378_AddedModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809301243296_Added Annotation.cs" />
+    <Compile Include="Migrations\201809301243296_Added Annotation.Designer.cs">
+      <DependentUpon>201809301243296_Added Annotation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809301249591_Comment.cs" />
+    <Compile Include="Migrations\201809301249591_Comment.Designer.cs">
+      <DependentUpon>201809301249591_Comment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809301300574_Added Annotations.cs" />
+    <Compile Include="Migrations\201809301300574_Added Annotations.Designer.cs">
+      <DependentUpon>201809301300574_Added Annotations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809301303555_vfgnf.cs" />
+    <Compile Include="Migrations\201809301303555_vfgnf.Designer.cs">
+      <DependentUpon>201809301303555_vfgnf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809301324267_kjfkshdf.cs" />
+    <Compile Include="Migrations\201809301324267_kjfkshdf.Designer.cs">
+      <DependentUpon>201809301324267_kjfkshdf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809301732325_dklsajds.cs" />
+    <Compile Include="Migrations\201809301732325_dklsajds.Designer.cs">
+      <DependentUpon>201809301732325_dklsajds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809301842244_dk.cs" />
+    <Compile Include="Migrations\201809301842244_dk.Designer.cs">
+      <DependentUpon>201809301842244_dk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809301849352_ddsdsd.cs" />
+    <Compile Include="Migrations\201809301849352_ddsdsd.Designer.cs">
+      <DependentUpon>201809301849352_ddsdsd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809301950546_dsfs.cs" />
+    <Compile Include="Migrations\201809301950546_dsfs.Designer.cs">
+      <DependentUpon>201809301950546_dsfs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810021557082_sifjhgsd.cs" />
+    <Compile Include="Migrations\201810021557082_sifjhgsd.Designer.cs">
+      <DependentUpon>201810021557082_sifjhgsd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810021609511_jczkjc.cs" />
+    <Compile Include="Migrations\201810021609511_jczkjc.Designer.cs">
+      <DependentUpon>201810021609511_jczkjc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810030637158_changed annotation.cs" />
+    <Compile Include="Migrations\201810030637158_changed annotation.Designer.cs">
+      <DependentUpon>201810030637158_changed annotation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810041314497_User.cs" />
+    <Compile Include="Migrations\201810041314497_User.Designer.cs">
+      <DependentUpon>201810041314497_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810041335036_User-Finished.cs" />
+    <Compile Include="Migrations\201810041335036_User-Finished.Designer.cs">
+      <DependentUpon>201810041335036_User-Finished.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810041340550_User-Update.cs" />
+    <Compile Include="Migrations\201810041340550_User-Update.Designer.cs">
+      <DependentUpon>201810041340550_User-Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810041707227_Login.cs" />
+    <Compile Include="Migrations\201810041707227_Login.Designer.cs">
+      <DependentUpon>201810041707227_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810042309064_changes.cs" />
+    <Compile Include="Migrations\201810042309064_changes.Designer.cs">
+      <DependentUpon>201810042309064_changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810042325301_changessss.cs" />
+    <Compile Include="Migrations\201810042325301_changessss.Designer.cs">
+      <DependentUpon>201810042325301_changessss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810050118451_Dodat filter.cs" />
+    <Compile Include="Migrations\201810050118451_Dodat filter.Designer.cs">
+      <DependentUpon>201810050118451_Dodat filter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810050142102_sdgdfg.cs" />
+    <Compile Include="Migrations\201810050142102_sdgdfg.Designer.cs">
+      <DependentUpon>201810050142102_sdgdfg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810051709559_Changed error messages.cs" />
+    <Compile Include="Migrations\201810051709559_Changed error messages.Designer.cs">
+      <DependentUpon>201810051709559_Changed error messages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810051717105_Changed error messages2.cs" />
+    <Compile Include="Migrations\201810051717105_Changed error messages2.Designer.cs">
+      <DependentUpon>201810051717105_Changed error messages2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810051721351_Changed error messages3.cs" />
+    <Compile Include="Migrations\201810051721351_Changed error messages3.Designer.cs">
+      <DependentUpon>201810051721351_Changed error messages3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810052134429_Changed annotationss.cs" />
+    <Compile Include="Migrations\201810052134429_Changed annotationss.Designer.cs">
+      <DependentUpon>201810052134429_Changed annotationss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810052138500_Changed annotatio.cs" />
+    <Compile Include="Migrations\201810052138500_Changed annotatio.Designer.cs">
+      <DependentUpon>201810052138500_Changed annotatio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jqueryTouchSlider.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\1.jpg" />
+    <Content Include="Images\2.jpg" />
+    <Content Include="Images\3.jpg" />
+    <Content Include="Images\autor.png" />
+    <Content Include="Images\banana.jpg" />
+    <Content Include="Images\broj_porcija.png" />
+    <Content Include="Images\burger.jpg" />
+    <Content Include="Images\cizkejk.jpg" />
+    <Content Include="Images\fejs.png" />
+    <Content Include="Images\hleb.jpg" />
+    <Content Include="Images\instagram.png" />
+    <Content Include="Images\ja.jpg" />
+    <Content Include="Images\logo.png" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\mancmelou.jpg" />
+    <Content Include="Images\naziv.png" />
+    <Content Include="Images\pica.jpg" />
+    <Content Include="Images\pinterest.png" />
+    <Content Include="Images\potpis.png" />
+    <Content Include="Images\priprema.png" />
+    <Content Include="Images\sastojci.png" />
+    <Content Include="Images\spagete.jpg" />
+    <Content Include="Images\twitter.png" />
+    <Content Include="Images\vreme_pripreme.png" />
+    <Content Include="Images\vrsta_recepta.png" />
+    <Content Include="Images\zacini.jpg" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.carousel.touch.slider.squadwuschel.1.0.2.js" />
+    <Content Include="Scripts\jquery.carousel.touch.slider.squadwuschel.1.0.2.min.js" />
+    <Content Include="Scripts\jquery.cj-swipe.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Recept\Create.cshtml" />
+    <Content Include="Views\Recept\Details.cshtml" />
+    <Content Include="Views\Recept\Edit.cshtml" />
+    <Content Include="Views\Recept\Index.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\User\Add.cshtml" />
+    <Content Include="Views\Login\LoginForm.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Recept\Filter.cshtml" />
+    <Content Include="Views\Recept\_ReceptItem.cshtml" />
+    <Content Include="Views\Recept\_ReceptList.cshtml" />
+    <Content Include="Views\Recept\MojiRecepti.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201809291927378_AddedModel.resx">
+      <DependentUpon>201809291927378_AddedModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809301243296_Added Annotation.resx">
+      <DependentUpon>201809301243296_Added Annotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809301249591_Comment.resx">
+      <DependentUpon>201809301249591_Comment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809301300574_Added Annotations.resx">
+      <DependentUpon>201809301300574_Added Annotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809301303555_vfgnf.resx">
+      <DependentUpon>201809301303555_vfgnf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809301324267_kjfkshdf.resx">
+      <DependentUpon>201809301324267_kjfkshdf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809301732325_dklsajds.resx">
+      <DependentUpon>201809301732325_dklsajds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809301842244_dk.resx">
+      <DependentUpon>201809301842244_dk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809301849352_ddsdsd.resx">
+      <DependentUpon>201809301849352_ddsdsd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809301950546_dsfs.resx">
+      <DependentUpon>201809301950546_dsfs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810021557082_sifjhgsd.resx">
+      <DependentUpon>201810021557082_sifjhgsd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810021609511_jczkjc.resx">
+      <DependentUpon>201810021609511_jczkjc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810030637158_changed annotation.resx">
+      <DependentUpon>201810030637158_changed annotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810041314497_User.resx">
+      <DependentUpon>201810041314497_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810041335036_User-Finished.resx">
+      <DependentUpon>201810041335036_User-Finished.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810041340550_User-Update.resx">
+      <DependentUpon>201810041340550_User-Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810041707227_Login.resx">
+      <DependentUpon>201810041707227_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810042309064_changes.resx">
+      <DependentUpon>201810042309064_changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810042325301_changessss.resx">
+      <DependentUpon>201810042325301_changessss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810050118451_Dodat filter.resx">
+      <DependentUpon>201810050118451_Dodat filter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810050142102_sdgdfg.resx">
+      <DependentUpon>201810050142102_sdgdfg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810051709559_Changed error messages.resx">
+      <DependentUpon>201810051709559_Changed error messages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810051717105_Changed error messages2.resx">
+      <DependentUpon>201810051717105_Changed error messages2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810051721351_Changed error messages3.resx">
+      <DependentUpon>201810051721351_Changed error messages3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810052134429_Changed annotationss.resx">
+      <DependentUpon>201810052134429_Changed annotationss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810052138500_Changed annotatio.resx">
+      <DependentUpon>201810052138500_Changed annotatio.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49730</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49730/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

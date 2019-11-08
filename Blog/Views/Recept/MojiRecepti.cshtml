@@ -1,0 +1,56 @@
+﻿@using Blog.Data
+@using Blog.Data.Models
+
+@{
+    ViewBag.Title = "Hranislavko - Moji recepti";
+
+    BlogContext db = new BlogContext();
+    List<Recept> listaRecepata = db.Recepti.ToList();
+
+    if (Session["Id"] == null)
+    {
+        Response.Redirect("~/Login/LoginForm");
+    }
+    if ((bool)Session["IsAdmin"] == true)
+    {
+        Response.Redirect("~/Home/Index");
+    }
+
+    bool showList = false;
+
+    foreach (var item in listaRecepata)
+    {
+        if (Session["Username"].Equals(item.Autor.ToString()))
+        {
+            showList = true;
+            break;
+        }
+    }
+
+    <div>
+        @if (showList == true)
+        {
+            <h2 style="margin-top:10%">Moji recepti - @Session["Username"].ToString()</h2>
+            foreach (var item in listaRecepata)
+            {
+                if (Session["Username"].Equals(item.Autor.ToString()))
+                {
+                    Html.RenderPartial("_ReceptItem", item);
+                }
+            }
+        }
+        else
+        {
+            <div style="margin-top:10%">
+                <h2>Nemate dodatih recepata</h2>
+                <h4>
+                    <img src="~/Images/autor.png" width="30" height="30" />
+                    <a href="~/Recept/Create">Dodaj svoj prvi recept</a>
+                </h4>
+            </div>
+        }
+
+
+    </div>
+
+}

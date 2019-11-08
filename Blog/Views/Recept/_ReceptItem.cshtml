@@ -1,0 +1,59 @@
+﻿@model Blog.Data.Models.Recept
+
+<div class="card recept col-md-6" style="margin-top:5%; margin-bottom:5%">
+    @{
+        if (Model.Naziv.Contains("Spage") || Model.Naziv.Contains("spage") || Model.Naziv.Contains("Špage") || Model.Naziv.Contains("špage"))
+        {
+            <img src="~/Images/spagete.jpg" />
+        }
+        else if (Model.Naziv.Contains("Burge") || Model.Naziv.Contains("burge"))
+        {
+            <img src="~/Images/burger.jpg" />
+        }
+        else if (Model.Naziv.Contains("pizz") || Model.Naziv.Contains("pica") || Model.Naziv.Contains("Pizz") || Model.Naziv.Contains("Pica"))
+        {
+            <img src="~/Images/pica.jpg" />
+        }
+        else if (Model.Naziv.Contains("čiz") || Model.Naziv.Contains("ciz") || Model.Naziv.Contains("Čiz") || Model.Naziv.Contains("Ciz"))
+        {
+            <img src="~/Images/cizkejk.jpg" />
+        }
+        else if (Model.Naziv.Contains("Hleb") || Model.Naziv.Contains("hleb"))
+        {
+            <img src="~/Images/hleb.jpg" />
+        }
+        else if (Model.Naziv.Contains("Bana") || Model.Naziv.Contains("bana"))
+        {
+            <img src="~/Images/banana.jpg" />
+        }
+        else if (Model.Naziv.Contains("Man") || Model.Naziv.Contains("man"))
+        {
+            <img src="~/Images/mancmelou.jpg" />
+        }
+        else
+        {
+            <img src="~/Images/zacini.jpg" />
+        }
+    }
+    <img class="card-img-top">
+    <div class="card-body">
+        <h3 class="card-title text-center">@Html.DisplayFor(modelItem => Model.Naziv)</h3>
+        <hr style="border-color:black" />
+
+        <div>
+            <div class="col-md-6">
+                <img src="~/Images/vreme_pripreme.png" width="30" height="30" />
+                <span style="font-size:medium;">@Html.DisplayFor(modelItem => Model.VremePripreme)</span>
+            </div>
+            <div class="col-md-6">
+                <img src="~/Images/broj_porcija.png" width="30" height="30" />
+                <span style="font-size:medium;">@Html.DisplayFor(modelItem => Model.BrojPorcija)</span>
+            </div>
+        </div>
+
+        <div class="text-center">
+            @Html.ActionLink("Pogledaj", "Details", new { id = Model.Id }, new { @class = "btn btn-success" })
+        </div>
+
+    </div>
+</div>

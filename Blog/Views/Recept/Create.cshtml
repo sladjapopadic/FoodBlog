@@ -1,0 +1,87 @@
+﻿@model Blog.Data.Models.Recept
+@using Blog.Data
+@using Blog.Data.Models
+
+@{
+    if (Session["Id"] == null)
+    {
+        Response.Redirect("~/Login/LoginForm");
+    }
+    ViewBag.Title = "Hranislavko - Dodavanje recepta";
+
+    List<SelectListItem> list = new List<SelectListItem>();
+    list.Add(new SelectListItem() { Text = "Slatko" });
+    list.Add(new SelectListItem() { Text = "Slano" });
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal" style="margin:10%">
+    <h2>
+        Dodavanje recepta
+        <img src="~/Images/sastojci.png" />
+    </h2>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Naziv, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Naziv, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Naziv, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Sastojci", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Sastojci, new { @class = "form-control", @cols = 30, @rows = 5})
+            @Html.ValidationMessageFor(model => model.Sastojci, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Priprema, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Priprema, new { @class = "form-control", @cols = 30, @rows = 5 })
+            @Html.ValidationMessageFor(model => model.Priprema, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.VremePripreme, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.VremePripreme, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.VremePripreme, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.VrstaRecepta, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.VrstaRecepta, list, "Izaberi vrstu")
+            @Html.ValidationMessageFor(model => model.VrstaRecepta, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BrojPorcija, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.BrojPorcija, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.BrojPorcija, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-success">Napravi</button>
+            @Html.ActionLink("Nazad", "Index", "Recept", new { @class = "btn btn-warning" })
+        </div>
+    </div>
+</div>
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,90 @@
+﻿@model Blog.Data.Models.Recept
+
+@{
+    ViewBag.Title = "Hranislavko - Detaljno";
+
+}
+
+<div class="card text-center" style="margin-top:10%; margin-bottom:10%">
+    <div class="card-header">
+        @{
+            if (Model.Naziv.Contains("Spage") || Model.Naziv.Contains("spage") || Model.Naziv.Contains("Špage") || Model.Naziv.Contains("špage"))
+            {
+                <img src="~/Images/spagete.jpg" />
+            }
+            else if (Model.Naziv.Contains("Burge") || Model.Naziv.Contains("burge"))
+            {
+                <img src="~/Images/burger.jpg" />
+            }
+            else if (Model.Naziv.Contains("pizz") || Model.Naziv.Contains("pica") || Model.Naziv.Contains("Pizz") || Model.Naziv.Contains("Pica"))
+            {
+                <img src="~/Images/pica.jpg" />
+            }
+            else if (Model.Naziv.Contains("čiz") || Model.Naziv.Contains("ciz") || Model.Naziv.Contains("Čiz") || Model.Naziv.Contains("Ciz"))
+            {
+                <img src="~/Images/cizkejk.jpg" />
+            }
+            else if (Model.Naziv.Contains("Hleb") || Model.Naziv.Contains("hleb"))
+            {
+                <img src="~/Images/hleb.jpg" />
+            }
+            else if (Model.Naziv.Contains("Banana") || Model.Naziv.Contains("banana"))
+            {
+                <img src="~/Images/banana.jpg" />
+            }
+            else if (Model.Naziv.Contains("Man") || Model.Naziv.Contains("man"))
+            {
+                <img src="~/Images/mancmelou.jpg" />
+            }
+            else
+            {
+                <img src="~/Images/zacini.jpg" />
+            }
+        }
+    </div>
+    <div class="card-body">
+        <h2 class="card-title"><strong>@Html.DisplayFor(model => model.Naziv)</strong></h2>
+        <div class="col-md-3">
+            <div>
+                <div style="border: 1px solid green;border-radius:10px;">
+
+                    <img src="~/Images/sastojci.png" />@Html.DisplayFor(model => model.Sastojci)
+                </div>
+            </div>
+
+            <div style="margin-top:3%;">
+                <img src="~/Images/broj_porcija.png" /> @Html.DisplayFor(model => model.BrojPorcija)
+            </div>
+
+            <div style="margin-top:3%;">
+                <img src="~/Images/vreme_pripreme.png" width="30" height="30" /> @Html.DisplayFor(model => model.VremePripreme)
+            </div>
+
+        </div>
+
+        <div class="col-md-9" style="margin-top:3%;">
+            <p>@Html.DisplayFor(model => model.Priprema)</p>
+        </div>
+
+
+
+    </div>
+    <div class="card-footer text-muted">
+        @if (Session["Id"] != null)
+        {
+            <p class="text-left">
+                @{
+                    if (Session["Username"].Equals(Model.Autor.ToString()) || (bool)Session["IsAdmin"] == true)
+                    {
+                        @Html.ActionLink("Izmeni", "Edit", new { id = Model.Id }, new { @class = "btn btn-success" }) @:|
+                        @Html.ActionLink("Obriši", "Delete", new { id = Model.Id }, new { @class = "btn btn-danger" })
+                    }
+                }
+
+            </p>
+        }
+
+        Postavio: @Html.DisplayFor(model => model.Autor)
+    </div>
+</div>
+

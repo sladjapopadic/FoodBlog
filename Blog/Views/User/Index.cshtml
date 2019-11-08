@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Blog.Data.Models.User>
+
+@{
+    if (Session["Id"] == null)
+    {
+        Response.Redirect("~/Login/LoginForm");
+    }
+    if ((bool)Session["IsAdmin"] == false)
+    {
+        Response.Redirect("~/Home/Index");
+    }
+    ViewBag.Title = "Hranislavko - Korisnici";
+}
+
+<table class="table" style="margin-top:5%">
+    <tr>
+        <th>
+            <h3>@Html.DisplayNameFor(model => model.Username)</h3>
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.IsAdmin == false)
+        {
+            <tr>
+                <td style="width:30%">
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.ActionLink("Izmeni", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Obriši", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    }
+
+</table>

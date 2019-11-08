@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Blog.Data.Models.Recept>
+
+
+@{
+    List<SelectListItem> lista = new List<SelectListItem>();
+    SelectListItem slano = new SelectListItem() { Text = "Slano" };
+    SelectListItem slatko = new SelectListItem() { Text = "Slatko" };
+    lista.Add(slano);
+    lista.Add(slatko);
+}
+
+<div style="margin-top:5%; margin-bottom:5%;">
+    @using (Html.BeginForm("Filter", "Recept", FormMethod.Post))
+    {
+        <div style="margin-top:10%">@Html.DropDownList("VrstaRecepta", lista, "Svi recepti", new { onchange = @"this.form.submit()" })</div>
+        <div>
+            @foreach (var item in Model)
+            {
+                Html.RenderPartial("_ReceptItem", item);
+            }
+        </div>
+    }
+</div>
+
+
+
+
