@@ -5,7 +5,7 @@
 - user register / login
 - post a new recipe
 - view all recipes on the blog and filter results
-- edit / delete recipes you posted
+- edit / delete posted recipes
 
 ### Demo: 
 ![](demo.gif)
